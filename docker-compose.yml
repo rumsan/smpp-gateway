@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  goip-sms:
+    container_name: 'goip-sms'
+    build: .
+    image: rumsan/smpp-gateway:latest
+    restart: always
+    env_file: .env
+    ports:
+      - 4242:3000
+    networks:
+      - default
+
+networks:
+  default:
+    driver: bridge
